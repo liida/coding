@@ -7,9 +7,8 @@
 ### 在线一键安装（推荐）
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
-
 **自动完成：**
 - ✅ 检测 AI 助手类型
 - ✅ 克隆仓库
@@ -22,7 +21,7 @@ curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR_USERNAME/skills.git
+git clone https://github.com/liida/coding.git
 cd skills
 
 # 自动检测并安装
