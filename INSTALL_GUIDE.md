@@ -5,7 +5,7 @@
 ### 方式 1：在线一键安装（推荐）
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 **说明：**
@@ -18,7 +18,7 @@ curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR_USERNAME/skills.git
+git clone https://github.com/liida/coding.git
 cd skills
 
 # 安装
@@ -29,9 +29,9 @@ bash install.sh
 
 ```bash
 # 下载最新版本
-wget https://github.com/YOUR_USERNAME/skills/archive/refs/heads/main.zip
+wget https://github.com/liida/coding/archive/refs/heads/main.zip
 unzip main.zip
-cd skills-main
+cd coding-main
 
 # 安装
 bash install.sh
@@ -43,21 +43,21 @@ bash install.sh
 
 ```bash
 export SKILLS_INSTALL_DIR="$HOME/my-skills"
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 ### 指定分支/版本
 
 ```bash
 export SKILLS_BRANCH="dev"
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 ### 指定仓库地址
 
 ```bash
 export SKILLS_REPO_URL="https://github.com/OTHER_USER/skills.git"
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 ## 📝 安装后配置
@@ -97,7 +97,7 @@ bash install.sh
 或者重新运行 bootstrap：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 ### 手动安装的更新
@@ -126,7 +126,7 @@ bash uninstall.sh
 
 ```bash
 export DEBIAN_FRONTEND=noninteractive
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash -s -- --silent
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash -s -- --silent
 ```
 
 ### 只安装特定 skills
@@ -142,7 +142,7 @@ bash install.sh
 ```bash
 # 1. Fork 仓库到你的 GitHub
 # 2. 克隆你的 fork
-git clone https://github.com/YOUR_USERNAME/skills.git
+git clone https://github.com/liida/coding.git
 
 # 3. 添加你自己的 skills
 mkdir -p skills/my-custom-skill
@@ -165,11 +165,11 @@ bash install.sh
 2. 创建 `docs/install` 文件：
    ```bash
    #!/bin/bash
-   curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+   curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
    ```
 3. 使用：
    ```bash
-   curl -fsSL https://YOUR_USERNAME.github.io/skills/install | bash
+   curl -fsSL https://liida.github.io/coding/install | bash
    ```
 
 ### 使用自定义域名
@@ -195,11 +195,11 @@ curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap
 ```bash
 # 使用 tag
 export SKILLS_BRANCH="v1.0.0"
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 
 # 使用 commit hash
 export SKILLS_BRANCH="abc123def456"
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 **验证脚本签名（高级）**
@@ -224,7 +224,7 @@ bash bootstrap.sh
 
 ```bash
 export SKILLS_TARGET="claude"
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 ### 问题：权限错误
@@ -243,8 +243,8 @@ ls -la ~/.cursor/rules/
 
 ```bash
 # 使用 Gitee 镜像
-export SKILLS_REPO_URL="https://gitee.com/YOUR_USERNAME/skills.git"
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/skills/main/bootstrap.sh | bash
+export SKILLS_REPO_URL="https://gitee.com/liida/coding.git"
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 ### 问题：Git 未安装
@@ -265,9 +265,8 @@ sudo apt install git
 ## 📞 获取帮助
 
 - 文档：[README.md](README.md)
-- 问题反馈：[GitHub Issues](https://github.com/YOUR_USERNAME/skills/issues)
+- 问题反馈：[GitHub Issues](https://github.com/liida/coding/issues)
 - 快速参考：[QUICKSTART.md](QUICKSTART.md)
 
 ---
 
-**提示：** 将 `YOUR_USERNAME` 替换为你的 GitHub 用户名

@@ -14,7 +14,7 @@ log_warn() { echo -e "${YELLOW}[WARN]${NC} $1"; }
 log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 
 # 配置
-REPO_URL="${SKILLS_REPO_URL:-https://github.com/YOUR_USERNAME/skills.git}"
+REPO_URL="${SKILLS_REPO_URL:-https://github.com/liida/coding.git}"
 BRANCH="${SKILLS_BRANCH:-main}"
 INSTALL_DIR="${SKILLS_INSTALL_DIR:-$HOME/.local/share/skills}"
 

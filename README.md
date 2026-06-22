@@ -15,14 +15,12 @@ curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | ba
 - ✅ 安装 skills
 - ✅ 配置到对应工具
 
-> 💡 **提示：** 将 `YOUR_USERNAME` 替换为你的 GitHub 用户名
-
 ### 手动安装
 
 ```bash
 # 克隆仓库
 git clone https://github.com/liida/coding.git
-cd skills
+cd coding
 
 # 自动检测并安装
 bash install.sh

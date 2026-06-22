@@ -11,7 +11,7 @@
 2. 进入目录
 3. 运行安装脚本
 
-git clone https://github.com/USER/skills.git
+git clone https://github.com/liida/coding.git
 cd skills
 bash install.sh
 ```
@@ -19,7 +19,7 @@ bash install.sh
 ### After（在线一键安装）
 ```bash
 # 用户只需要：
-curl -fsSL https://raw.githubusercontent.com/USER/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 **自动完成：**
@@ -32,21 +32,21 @@ curl -fsSL https://raw.githubusercontent.com/USER/skills/main/bootstrap.sh | bas
 
 ### 1. 在线一键安装（新增）
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USER/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 ### 2. 手动克隆安装
 ```bash
-git clone https://github.com/USER/skills.git
+git clone https://github.com/liida/coding.git
 cd skills
 bash install.sh
 ```
 
 ### 3. 下载压缩包安装
 ```bash
-wget https://github.com/USER/skills/archive/main.zip
+wget https://github.com/liida/coding/archive/main.zip
 unzip main.zip
-cd skills-main
+cd coding-main
 bash install.sh
 ```
 
@@ -100,7 +100,7 @@ SKILLS_INSTALL_DIR  # 安装目录
 
 | 变量 | 默认值 | 说明 |
 |------|--------|------|
-| `SKILLS_REPO_URL` | `https://github.com/USER/skills.git` | 仓库地址 |
+| `SKILLS_REPO_URL` | `https://github.com/liida/coding.git` | 仓库地址 |
 | `SKILLS_BRANCH` | `main` | 分支/标签 |
 | `SKILLS_INSTALL_DIR` | `~/.local/share/skills` | 安装目录 |
 
@@ -108,20 +108,20 @@ SKILLS_INSTALL_DIR  # 安装目录
 
 ### 场景 1：新用户快速安装
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USER/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 # 一条命令完成所有操作
 ```
 
 ### 场景 2：自定义安装位置
 ```bash
 export SKILLS_INSTALL_DIR="$HOME/my-skills"
-curl -fsSL https://raw.githubusercontent.com/USER/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 ### 场景 3：安装特定版本
 ```bash
 export SKILLS_BRANCH="v1.0.0"
-curl -fsSL https://raw.githubusercontent.com/USER/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 ### 场景 4：Fork 仓库后安装
@@ -133,7 +133,7 @@ curl -fsSL https://raw.githubusercontent.com/MYNAME/skills/main/bootstrap.sh | b
 ### 场景 5：更新已安装的 skills
 ```bash
 # 方式 1：重新运行 bootstrap
-curl -fsSL https://raw.githubusercontent.com/USER/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 
 # 方式 2：手动更新
 cd ~/.local/share/skills
@@ -150,7 +150,7 @@ bash install.sh
 
 ### 在线一键安装（推荐）
 
-curl -fsSL https://raw.githubusercontent.com/USER/skills/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
 ```
 
 ## 🔒 安全考虑
@@ -186,7 +186,7 @@ skills/
 
 1. **测试在线安装**
    ```bash
-   curl -fsSL https://raw.githubusercontent.com/USER/skills/main/bootstrap.sh | bash
+   curl -fsSL https://raw.githubusercontent.com/liida/coding/main/bootstrap.sh | bash
    ```
 
 2. **创建 Release**
@@ -206,8 +206,8 @@ skills/
 
 4. **添加徽章到 README**
    ```markdown
-   ![Version](https://img.shields.io/github/v/release/USER/skills)
-   ![License](https://img.shields.io/github/license/USER/skills)
+   ![Version](https://img.shields.io/github/v/release/liida/coding)
+   ![License](https://img.shields.io/github/license/liida/coding)
    ```
 
 ## ✨ 优势总结
