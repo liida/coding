@@ -1,21 +1,53 @@
 ---
-name: django-ninja-project-standard
-description: Django Ninja 项目标准。用于新建、改造或评审 Django/Django Ninja/Python API 后端项目，以及可选的配套 frontend-admin 管理前端；默认采用 Django + Django Ninja + Celery + Redis + PostgreSQL + Docker Compose + uv + pytest + ruff，前端可采用 Vue 3 + Vite + Vue Router + Axios；适用于用户要求 Django Ninja 项目、Python 后端骨架、带 Celery/Docker 的 API 服务，或未指定后端技术栈但需要采用本地默认项目标准的场景。
+name: django-ninja
+description: Django Ninja 框架规范。定义目录结构、API 规范、Docker 配置、技术栈选型。依赖 python-oop 提供编码规范，依赖 workflow 提供工作流。
 metadata:
-  short-description: Django Ninja 项目标准骨架
+  short-description: Django Ninja 框架规范
+  layer: framework-standards
+  framework: django-ninja
+  dependencies: [python-oop]
 ---
 
-# Django Ninja 项目标准
+# Django Ninja - 框架规范
+
+**定位**：框架规范层，定义 Django Ninja 特定内容，不重复定义编码规范。
+
+## 职责范围
+
+本 skill **专注于**：
+- ✅ Django Ninja 目录结构（`apps/`、`config/`）
+- ✅ API 响应格式、路由规范
+- ✅ Docker Compose 服务配置
+- ✅ 技术栈选型（PostgreSQL、Redis、Celery）
+- ✅ 环境变量、数据库配置
+
+本 skill **不重复定义**：
+- ❌ Python 编码规范 → 委托给 **`python-oop`**
+- ❌ 工作流程 → 委托给 **`workflow`**
+
+## 依赖关系
+
+本 skill **依赖** 以下 skills：
+- ✅ **`python-oop`** — Python 编码规范（类优先、Repository、Service）
+- ✅ **`workflow`** — 工作流编排（可选，建议组合使用）
+
+## 触发方式
+
+1. **自动触发**：`workflow` 检测到 Django Ninja 项目时自动加载
+2. **手动触发**：`/django-ninja` 或在提示词中提及
+
+## 使用说明
 
 本 skill 用于把 Django Ninja 后端项目落到统一工程标准，并在需要时补齐配套 `frontend-admin/` 管理前端约定。除非用户明确要求其他技术栈，否则后端默认采用 Django + Django Ninja + Celery + Redis + PostgreSQL + Docker Compose + uv。
 
 ## 前置规则
 
-- 同时遵守 `project-workflow`：先理解现有仓库，再精确修改，最后做匹配范围的验证。
-- 新建项目可直接生成标准骨架；已有项目只补齐缺失能力，保留既有业务代码、可用约定和已经稳定的路由。
-- 如果用户要求与本标准冲突，先指出冲突并确认取舍，不要静默替换技术栈、目录布局或运行方式。
-- 不要把本 skill 当作通用 Python 模板；非 Django Ninja 后端场景不使用。
-- 若仓库内存在 `AGENTS.md`、项目 README、架构文档或项目记忆，优先遵守这些更贴近当前项目的约定。
+- **编码规范**：遵守 `python-oop` 定义的类优先架构、Repository/Service 模式、依赖注入等规则
+- **工作流**：建议配合 `workflow` 使用，先理解现有仓库，再精确修改，最后做匹配范围的验证
+- 新建项目可直接生成标准骨架；已有项目只补齐缺失能力，保留既有业务代码、可用约定和已经稳定的路由
+- 如果用户要求与本标准冲突，先指出冲突并确认取舍，不要静默替换技术栈、目录布局或运行方式
+- 不要把本 skill 当作通用 Python 模板；非 Django Ninja 后端场景不使用
+- 若仓库内存在 `AGENTS.md`、项目 README、架构文档或项目记忆，优先遵守这些更贴近当前项目的约定
 
 ## 默认技术栈
 

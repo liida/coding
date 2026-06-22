@@ -1,0 +1,4 @@
+interface:
+  display_name: "Django Ninja"
+  short_description: "Django Ninja 框架规范 - 目录结构与 API 规范"
+  default_prompt: "按照 Django Ninja 规范组织项目：apps/ 目录结构、API 响应格式、Docker Compose 配置。依赖 python-oop 提供编码规范。"

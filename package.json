@@ -1,0 +1,81 @@
+{
+  "name": "skills-collection",
+  "version": "1.0.0",
+  "description": "跨平台 AI 编程助手 Skills 集合 - 分层组合架构",
+  "repository": {
+    "type": "git",
+    "url": "your-repo-url"
+  },
+  "keywords": ["ai-assistant", "skills", "claude-code", "codex", "cursor"],
+  "skills": {
+    "workflow": {
+      "name": "Workflow",
+      "description": "工作流编排器 - 自动检测项目类型并委托给编码规范",
+      "layer": "orchestration",
+      "platforms": ["claude", "cursor", "codex"],
+      "path": "./skills/workflow/SKILL.md",
+      "dependencies": [],
+      "auto_load": ["python-oop", "django-ninja"]
+    },
+    "python-oop": {
+      "name": "Python OOP",
+      "description": "Python 面向对象编码规范 - 类优先架构",
+      "layer": "coding-standards",
+      "language": "python",
+      "platforms": ["claude", "cursor", "codex"],
+      "path": "./skills/python-oop/SKILL.md",
+      "dependencies": []
+    },
+    "django-ninja": {
+      "name": "Django Ninja",
+      "description": "Django Ninja 框架规范 - 目录结构与 API 规范",
+      "layer": "framework-standards",
+      "framework": "django-ninja",
+      "platforms": ["claude", "cursor", "codex"],
+      "path": "./skills/django-ninja/SKILL.md",
+      "dependencies": ["python-oop"]
+    }
+  },
+  "architecture": {
+    "layers": {
+      "orchestration": {
+        "description": "工作流编排层 - 流程控制和自动委托",
+        "skills": ["workflow"]
+      },
+      "coding-standards": {
+        "description": "编码规范层 - 如何编写代码",
+        "skills": ["python-oop"]
+      },
+      "framework-standards": {
+        "description": "框架规范层 - 特定框架的项目结构",
+        "skills": ["django-ninja"]
+      }
+    },
+    "composition": {
+      "python-project": ["workflow", "python-oop"],
+      "django-project": ["workflow", "python-oop", "django-ninja"]
+    }
+  },
+  "installation": {
+    "claude": {
+      "method": "symlink",
+      "target": "~/.claude/skills/",
+      "command": "bash install.sh"
+    },
+    "cursor": {
+      "method": "copy",
+      "target": "~/.cursor/rules/",
+      "format": ".cursorrules"
+    },
+    "codex": {
+      "method": "copy",
+      "target": "~/.openai/prompts/",
+      "format": ".md"
+    }
+  },
+  "scripts": {
+    "install": "bash install.sh",
+    "uninstall": "bash uninstall.sh",
+    "validate": "bash validate.sh"
+  }
+}

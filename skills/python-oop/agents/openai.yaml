@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python OOP"
+  short_description: "Python 面向对象编码规范 - 类优先架构"
+  default_prompt: "按照 Python OOP 规范编写代码：类优先架构、Repository/Service 模式、dataclass/Pydantic、依赖注入。"

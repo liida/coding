@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workflow"
+  short_description: "工作流编排器 - 自动检测项目类型并委托给编码规范"
+  default_prompt: "使用 workflow 编排开发流程，自动加载 Python OOP 或 Django Ninja 等编码规范。"
