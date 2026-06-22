@@ -52,71 +52,53 @@ bash uninstall.sh
 
 ```
 skills/
-├── install.sh                          # 一键安装脚本
-├── uninstall.sh                        # 卸载脚本
-├── validate.sh                         # 格式验证脚本
-├── package.json                        # Skills 元数据配置
-├── README.md                           # 本文档
+├── bootstrap.sh                 # 在线一键安装脚本
+├── install.sh                   # 本地安装脚本
+├── uninstall.sh                 # 卸载脚本
+├── validate.sh                  # 格式验证脚本
+├── package.json                 # Skills 元数据配置
+├── README.md                    # 本文档
 │
-├── project-workflow/                   # 仓库开发工作流
-│   ├── SKILL.md                        # Skill 定义
-│   └── agents/
-│       └── openai.yaml                 # UI 元数据
-│
-├── django-ninja-project-standard/      # Django Ninja 项目标准
-│   ├── SKILL.md
-│   └── agents/
-│       └── openai.yaml
-│
-└── python-oop-standards/               # Python OOP 编码规范
-    ├── SKILL.md
-    ├── agents/
-    │   └── openai.yaml
-    └── examples/                       # 参考实现
-        └── README.md                   # 用户管理模块示例
+└── skills/                      # Skills 统一目录
+    ├── workflow/                # 工作流编排器
+    │   ├── SKILL.md
+    │   ├── README.md
+    │   ├── agents/openai.yaml
+    │   └── examples/
+    │
+    ├── python-oop/              # Python OOP 编码规范
+    │   ├── SKILL.md
+    │   ├── agents/openai.yaml
+    │   └── examples/README.md
+    │
+    └── django-ninja/            # Django Ninja 框架规范
+        ├── SKILL.md
+        ├── README.md
+        ├── agents/openai.yaml
+        └── examples/
 ```
 
 ## 可用 Skills
 
-### 1. `project-workflow`
+### 1. `workflow`
 
-**仓库级开发任务工作流**
+**工作流编排器**
 
-适用于任何项目的开发任务：
-- 任务开始前读取项目上下文和记忆
+通用的仓库开发工作流，自动检测项目类型并加载对应编码规范：
+- 任务开始前读取项目上下文和记忆（支持 CLAUDE.md、.cursorrules 等）
+- 自动检测项目类型，委托给对应的编码规范 skills
 - 理解现有实现、复用模式和命名风格
 - 保持简单优先、精确修改、风险可控
 - 完成后执行验证并更新项目记忆
 
 **使用方式：**
-- **Claude Code**: `/project-workflow` 或在项目根目录自动生效
+- **Claude Code**: `/workflow`（自动加载 python-oop 或 django-ninja）
 - **Cursor**: 在 `.cursorrules` 中自动生效
-- **Codex**: 引用 `~/.openai/prompts/project-workflow.md`
+- **Codex**: 引用 `~/.openai/prompts/workflow.md`
 
 ---
 
-### 2. `django-ninja-project-standard`
-
-**Django Ninja 后端项目标准**
-
-专门针对 Django Ninja API 项目：
-- 默认技术栈：Django + Django Ninja + Celery + Redis + PostgreSQL + Docker
-- 规范目录结构：`backend/`、`config/`、`apps/`
-- 固化 API 入口、健康检查、文档地址
-- 适用于新建、改造或评审 Django 后端
-
-**使用关系：**
-- Django Ninja 项目同时使用 `project-workflow` 和此 skill
-- 非 Django 项目不套用此标准
-
-**使用方式：**
-- **Claude Code**: `/django-ninja-project-standard`
-- **Cursor**: 在项目根目录放置 `.cursorrules` 引用
-- **Codex**: 引用 `~/.openai/prompts/django-ninja-project-standard.md`
-
----
-
-### 3. `python-oop-standards`
+### 2. `python-oop`
 
 **Python 面向对象编码规范**
 
@@ -138,12 +120,33 @@ skills/
 - 强制类型安全
 
 **参考实现：**  
-`python-oop-standards/examples/README.md` — 用户管理模块完整示例
+`skills/python-oop/examples/README.md` — 用户管理模块完整示例
 
 **使用方式：**
-- **Claude Code**: `/python-oop-standards` 或 "按照 Python OOP 标准编写"
+- **Claude Code**: `/python-oop` 或 "按照 Python OOP 规范编写"
 - **Cursor**: 在 Python 项目根目录引用
-- **Codex**: 引用 `~/.openai/prompts/python-oop-standards.md`
+- **Codex**: 引用 `~/.openai/prompts/python-oop.md`
+
+---
+
+### 3. `django-ninja`
+
+**Django Ninja 框架规范**
+
+专门针对 Django Ninja API 项目：
+- 默认技术栈：Django + Django Ninja + Celery + Redis + PostgreSQL + Docker
+- 规范目录结构：`apps/`、`config/`
+- 固化 API 入口、健康检查、文档地址
+- 适用于新建、改造或评审 Django 后端
+
+**依赖关系：**
+- 依赖 `python-oop` 提供编码规范
+- 建议配合 `workflow` 使用
+
+**使用方式：**
+- **Claude Code**: `/django-ninja`（会自动加载 python-oop）
+- **Cursor**: 在项目根目录放置 `.cursorrules` 引用
+- **Codex**: 引用 `~/.openai/prompts/django-ninja.md`
 
 ---
 
@@ -241,7 +244,7 @@ interface:
 ```bash
 # 在项目根目录
 claude code
-# 然后输入 skill 名称，如 /project-workflow
+# 然后输入 skill 名称，如 /workflow
 ```
 
 **Cursor:**  
@@ -250,14 +253,14 @@ Rules 文件自动加载，直接在对话中提及即可。
 **Codex:**  
 在对话中引用：
 ```
-请按照 ~/.openai/prompts/python-oop-standards.md 的规范编写代码
+请按照 ~/.openai/prompts/python-oop.md 的规范编写代码
 ```
 
 ### 可以混合使用多个 skills 吗？
 
-可以。`project-workflow` 是通用基础工作流，可以和专项 skills 组合：
-- Django 项目：`project-workflow` + `django-ninja-project-standard`
-- Python 项目：`project-workflow` + `python-oop-standards`
+可以。`workflow` 会自动检测项目类型并加载对应的编码规范：
+- **Python 项目**：`workflow` 自动加载 `python-oop`
+- **Django 项目**：`workflow` 自动加载 `python-oop` + `django-ninja`
 
 ### 安装脚本做了什么？
 
